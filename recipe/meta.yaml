@@ -1,0 +1,69 @@
+{% set version = "2.3.2" %}
+
+package:
+  name: saga-gis-lts
+  version: {{ version }}
+
+source:
+  git_url: https://git.code.sf.net/p/saga-gis/code.git
+  git_ref: release-2-3-lts
+  patches:
+    # saga_api, CSG_Table::Del_Records(): bug fix, check record count correctly
+    - 0001_saga_api_csg_table.patch
+    # fix clang
+    - 0002_fix_clang_compilation.patch
+    # io_gdal, org_driver: do not use methods marked as deprecated in GDAL 2.0
+    # https://sourceforge.net/p/saga-gis/bugs/245/
+    - 0003_gdal_ogr_skip_deprecated_methods.patch
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - m2-sed  # [win]
+  host:
+    - gdal
+    - opencv
+    - proj4
+    - postgresql
+    - vigra
+    - wxwidgets
+    # Don't have these as recipes yet
+    # - libharu
+    # - liblas
+  run:
+    - gdal
+    - opencv
+    - proj4
+    - postgresql
+    - vigra
+    - wxwidgets
+    # Don't have these as recipes yet
+    # - libharu
+    # - liblas
+
+test:
+  commands:
+    - saga-gis -h
+
+about:
+  home: http://saga-gis.org
+  license: GPL-2.0
+  license_family: GPL
+  license_file: saga-gis/COPYING
+  summary: System for Automated Geoscientific Analyses - Long Term Support
+  description: |
+    SAGA is a Geographic Information System (GIS) software that has been
+    designed for an easy and effective implementation of spatial algorithms and
+    offers a comprehensive, growing set of geoscientific methods, and provides
+    an easily approachable user interface with many visualisation options.
+  dev_url: http://www.saga-gis.org/
+  doc_url: http://www.saga-gis.org/saga_tool_doc/2.3.0/
+
+extra:
+  recipe-maintainers:
+    - mcflugen
+    - dakcarto

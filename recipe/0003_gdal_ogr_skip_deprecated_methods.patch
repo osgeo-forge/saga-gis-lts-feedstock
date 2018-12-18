@@ -1,0 +1,101 @@
+--- a/saga-gis/src/modules/io/io_gdal/ogr_driver.cpp
++++ b/saga-gis/src/modules/io/io_gdal/ogr_driver.cpp
+@@ -531,12 +531,11 @@
+ //---------------------------------------------------------
+ int CSG_OGR_DataSet::Get_Count(void)	const
+ {
+-	if( m_pDataSet )
+-	{
+-		return OGR_DS_GetLayerCount( m_pDataSet );
+-	}
+-
+-	return( 0 );
++#ifdef USE_GDAL_V2
++	return( m_pDataSet ? GDALDatasetGetLayerCount(m_pDataSet) : 0 );
++#else
++ 	return( m_pDataSet ? OGR_DS_GetLayerCount(m_pDataSet) : 0 );
++#endif
+ }
+
+ //---------------------------------------------------------
+@@ -544,7 +543,11 @@
+ {
+ 	if( m_pDataSet && iLayer >= 0 && iLayer < Get_Count() )
+ 	{
+-		return OGR_DS_GetLayer( m_pDataSet, iLayer);
++#ifdef USE_GDAL_V2
++	return( GDALDatasetGetLayer(m_pDataSet, iLayer) );
++#else
++	return( OGR_DS_GetLayer(m_pDataSet, iLayer) );
++#endif
+ 	}
+
+ 	return( NULL );
+@@ -630,44 +633,43 @@
+ 	}
+
+ 	//-----------------------------------------------------
+-	OGRFeatureDefnH pDef = OGR_L_GetLayerDefn( pLayer );
+-	CSG_Shapes		*pShapes	= SG_Create_Shapes(Get_Type(iLayer), CSG_String(OGR_Fld_GetNameRef(pDef)), NULL, Get_Coordinate_Type(iLayer));
++	OGRFeatureDefnH	pDefn	= OGR_L_GetLayerDefn(pLayer);
++	CSG_Shapes		*pShapes	= SG_Create_Shapes(Get_Type(iLayer), CSG_String(OGR_L_GetName(pLayer)), NULL, Get_Coordinate_Type(iLayer));
+
+ 	pShapes->Get_Projection()	= Get_Projection(iLayer);
+
+ 	//-----------------------------------------------------
+-	int		iField;
+-
+-	for(iField=0; iField< OGR_FD_GetFieldCount(pDef); iField++)
+-	{
+-		OGRFieldDefnH pDefField	= OGR_FD_GetFieldDefn( pDef, iField);
+-
+-		pShapes->Add_Field( OGR_Fld_GetNameRef( pDefField ), CSG_OGR_Drivers::Get_Data_Type( OGR_Fld_GetType( pDefField ) ) );
+-	}
++	{
++		for(int iField=0; iField<OGR_FD_GetFieldCount(pDefn); iField++)
++		{
++			OGRFieldDefnH	pDefnField	= OGR_FD_GetFieldDefn(pDefn, iField);
++
++			pShapes->Add_Field(OGR_Fld_GetNameRef(pDefnField), CSG_OGR_Drivers::Get_Data_Type(OGR_Fld_GetType(pDefnField)));
++		}
++	}
++
+
+ 	//-----------------------------------------------------
+ 	OGRFeatureH pFeature;
+-
+-	OGR_L_ResetReading( pLayer );
+-
+-	while( (pFeature = OGR_L_GetNextFeature( pLayer ) ) != NULL && SG_UI_Process_Get_Okay(false) )
+-	{
+-		OGRGeometryH pGeometry = OGR_F_GetGeometryRef( pFeature );
++	OGR_L_ResetReading(pLayer);
++
++	while( (pFeature = OGR_L_GetNextFeature(pLayer)) != NULL && SG_UI_Process_Get_Okay(false) )
++	{
++		OGRGeometryH	pGeometry	= OGR_F_GetGeometryRef(pFeature);
+
+ 		if( pGeometry != NULL )
+ 		{
+ 			CSG_Shape	*pShape	= pShapes->Add_Shape();
+
+-			for(iField=0; iField<OGR_FD_GetFieldCount(pDef); iField++)
++			for(int iField=0; iField<pShapes->Get_Field_Count(); iField++)
+ 			{
+-				OGRFieldDefnH pDefField	= OGR_FD_GetFieldDefn(pDef, iField);
+-
+-				switch( OGR_Fld_GetType( pDefField ) )
++				switch( pShapes->Get_Field_Type(iField) )
+ 				{
+-				default:			pShape->Set_Value(iField, OGR_F_GetFieldAsString( pFeature, iField));	break;
+-				case OFTString:		pShape->Set_Value(iField, OGR_F_GetFieldAsString( pFeature, iField));	break;
+-				case OFTInteger:	pShape->Set_Value(iField, OGR_F_GetFieldAsInteger( pFeature, iField));	break;
+-				case OFTReal:		pShape->Set_Value(iField, OGR_F_GetFieldAsDouble( pFeature, iField));	break;
++				default                : pShape->Set_Value(iField, OGR_F_GetFieldAsString (pFeature, iField)); break;
++				case SG_DATATYPE_String: pShape->Set_Value(iField, OGR_F_GetFieldAsString (pFeature, iField)); break;
++				case SG_DATATYPE_Int   : pShape->Set_Value(iField, OGR_F_GetFieldAsInteger(pFeature, iField)); break;
++				case SG_DATATYPE_Float : pShape->Set_Value(iField, OGR_F_GetFieldAsDouble (pFeature, iField)); break;
++				case SG_DATATYPE_Double: pShape->Set_Value(iField, OGR_F_GetFieldAsDouble (pFeature, iField)); break;
+ 				}
+ 			}
+

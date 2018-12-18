@@ -1,0 +1,11 @@
+--- a/saga-gis/src/saga_core/saga_api/table.cpp
++++ b/saga-gis/src/saga_core/saga_api/table.cpp
+@@ -901,7 +901,7 @@
+ //---------------------------------------------------------
+ bool CSG_Table::Del_Records(void)
+ {
+-	if( m_Records > 0 )
++	if( m_nRecords > 0 )
+ 	{
+ 		_Index_Destroy();
+
