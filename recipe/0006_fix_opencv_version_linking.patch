@@ -1,0 +1,40 @@
+diff --git a/saga-gis/src/modules/imagery/imagery_opencv/imagery_opencv.vcxproj b/saga-gis/src/modules/imagery/imagery_opencv/imagery_opencv.vcxproj
+index f9b76edd..61370522 100644
+--- a/saga-gis/src/modules/imagery/imagery_opencv/imagery_opencv.vcxproj
++++ b/saga-gis/src/modules/imagery/imagery_opencv/imagery_opencv.vcxproj
+@@ -122,7 +122,7 @@
+       <Culture>0x0407</Culture>
+     </ResourceCompile>
+     <Link>
+-      <AdditionalDependencies>opencv_core310d.lib;opencv_imgproc310d.lib;opencv_ml310d.lib;opencv_calib3d310d.lib;saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>opencv_core344d.lib;opencv_imgproc344d.lib;opencv_ml344d.lib;opencv_calib3d344d.lib;saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+       <AdditionalLibraryDirectories>$(OPENCV_32)\lib;..\..\..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+@@ -174,7 +174,7 @@
+       <Culture>0x0407</Culture>
+     </ResourceCompile>
+     <Link>
+-      <AdditionalDependencies>opencv_core310d.lib;opencv_imgproc310d.lib;opencv_ml310d.lib;opencv_calib3d310d.lib;saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>opencv_core344d.lib;opencv_imgproc344d.lib;opencv_ml344d.lib;opencv_calib3d344d.lib;saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+       <AdditionalLibraryDirectories>$(OPENCV)\lib;..\..\..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+@@ -225,7 +225,7 @@
+       <Culture>0x0407</Culture>
+     </ResourceCompile>
+     <Link>
+-      <AdditionalDependencies>opencv_core310.lib;opencv_imgproc310.lib;opencv_ml310.lib;opencv_calib3d310.lib;saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>opencv_core344.lib;opencv_imgproc344.lib;opencv_ml344.lib;opencv_calib3d344.lib;saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+       <AdditionalLibraryDirectories>$(OPENCV_32)\lib;..\..\..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+@@ -275,7 +275,7 @@
+       <Culture>0x0407</Culture>
+     </ResourceCompile>
+     <Link>
+-      <AdditionalDependencies>opencv_core310.lib;opencv_imgproc310.lib;opencv_ml310.lib;opencv_calib3d310.lib;saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>opencv_core344.lib;opencv_imgproc344.lib;opencv_ml344.lib;opencv_calib3d344.lib;saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+       <AdditionalLibraryDirectories>$(OPENCV)\lib;..\..\..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

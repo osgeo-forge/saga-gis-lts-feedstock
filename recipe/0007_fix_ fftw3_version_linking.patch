@@ -1,0 +1,40 @@
+diff --git a/saga-gis/src/modules/imagery/imagery_vigra/imagery_vigra.vcxproj b/saga-gis/src/modules/imagery/imagery_vigra/imagery_vigra.vcxproj
+index 8836c35b..ec03018c 100644
+--- a/saga-gis/src/modules/imagery/imagery_vigra/imagery_vigra.vcxproj
++++ b/saga-gis/src/modules/imagery/imagery_vigra/imagery_vigra.vcxproj
+@@ -123,7 +123,7 @@
+       <Culture>0x0407</Culture>
+     </ResourceCompile>
+     <Link>
+-      <AdditionalDependencies>saga_api.lib;vigraimpex.lib;libfftw3-3.lib;hdf5.lib;hdf5_hl.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>saga_api.lib;vigraimpex.lib;fftw3.lib;hdf5.lib;hdf5_hl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+       <AdditionalLibraryDirectories>$(VIGRA_32)\lib;..\..\..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+@@ -176,7 +176,7 @@
+       <Culture>0x0407</Culture>
+     </ResourceCompile>
+     <Link>
+-      <AdditionalDependencies>saga_api.lib;vigraimpex.lib;libfftw3-3.lib;hdf5.lib;hdf5_hl.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>saga_api.lib;vigraimpex.lib;fftw3.lib;hdf5.lib;hdf5_hl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+       <AdditionalLibraryDirectories>$(VIGRA)\lib;..\..\..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+@@ -228,7 +228,7 @@
+       <Culture>0x0407</Culture>
+     </ResourceCompile>
+     <Link>
+-      <AdditionalDependencies>saga_api.lib;vigraimpex.lib;libfftw3-3.lib;hdf5.lib;hdf5_hl.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>saga_api.lib;vigraimpex.lib;fftw3.lib;hdf5.lib;hdf5_hl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+       <AdditionalLibraryDirectories>$(VIGRA_32)\lib;..\..\..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+@@ -279,7 +279,7 @@
+       <Culture>0x0407</Culture>
+     </ResourceCompile>
+     <Link>
+-      <AdditionalDependencies>saga_api.lib;vigraimpex.lib;libfftw3-3.lib;hdf5.lib;hdf5_hl.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalDependencies>saga_api.lib;vigraimpex.lib;fftw3.lib;hdf5.lib;hdf5_hl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+       <AdditionalLibraryDirectories>$(VIGRA)\lib;..\..\..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

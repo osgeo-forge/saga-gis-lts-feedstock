@@ -1,0 +1,266 @@
+diff --git a/saga-gis/src/dev_tools/dev_tools.vcxproj b/saga-gis/src/dev_tools/dev_tools.vcxproj
+index e91fd826..3f534d7b 100644
+--- a/saga-gis/src/dev_tools/dev_tools.vcxproj
++++ b/saga-gis/src/dev_tools/dev_tools.vcxproj
+@@ -232,7 +232,7 @@
+       <AdditionalDependencies>wxbase31ud.lib;wxmsw31ud_core.lib;saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_dll;..\..\bin\saga_vc_$(Platform)_ud\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;..\..\bin\saga_vc_$(Platform)_ud\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
+@@ -328,7 +328,7 @@
+       <AdditionalDependencies>wxbase31ud.lib;wxmsw31ud_core.lib;saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_dll;..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
+@@ -427,7 +427,7 @@
+       <AdditionalDependencies>wxbase31.lib;wxmsw31_core.lib;saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_dll;..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+@@ -527,7 +527,7 @@
+       <AdditionalDependencies>wxbase31u.lib;wxmsw31u_core.lib;saga_api.lib</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_dll;..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+diff --git a/saga-gis/src/modules/io/io_shapes/io_shapes.vcxproj b/saga-gis/src/modules/io/io_shapes/io_shapes.vcxproj
+index 8b3a06f5..3bebffdd 100644
+--- a/saga-gis/src/modules/io/io_shapes/io_shapes.vcxproj
++++ b/saga-gis/src/modules/io/io_shapes/io_shapes.vcxproj
+@@ -177,7 +177,7 @@
+       <AdditionalDependencies>saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_dll;..\..\..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;..\..\..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
+@@ -278,7 +278,7 @@
+       <AdditionalDependencies>saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_dll;..\..\..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;..\..\..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+diff --git a/saga-gis/src/modules/io/io_virtual/io_virtual.vcxproj b/saga-gis/src/modules/io/io_virtual/io_virtual.vcxproj
+index 34688d29..06f7d903 100644
+--- a/saga-gis/src/modules/io/io_virtual/io_virtual.vcxproj
++++ b/saga-gis/src/modules/io/io_virtual/io_virtual.vcxproj
+@@ -177,7 +177,7 @@
+       <AdditionalDependencies>saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_dll;..\..\..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;..\..\..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
+@@ -278,7 +278,7 @@
+       <AdditionalDependencies>saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_dll;..\..\..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;..\..\..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+diff --git a/saga-gis/src/modules/pointcloud/pointcloud_tools/pointcloud_tools.vcxproj b/saga-gis/src/modules/pointcloud/pointcloud_tools/pointcloud_tools.vcxproj
+index 99a17d8d..4258128e 100644
+--- a/saga-gis/src/modules/pointcloud/pointcloud_tools/pointcloud_tools.vcxproj
++++ b/saga-gis/src/modules/pointcloud/pointcloud_tools/pointcloud_tools.vcxproj
+@@ -177,7 +177,7 @@
+       <AdditionalDependencies>saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_dll;..\..\..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;..\..\..\..\bin\saga_vc_$(Platform)_d\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
+@@ -278,7 +278,7 @@
+       <AdditionalDependencies>saga_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_dll;..\..\..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;..\..\..\..\bin\saga_vc_$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+diff --git a/saga-gis/src/saga_core/saga_api/saga_api.vcxproj b/saga-gis/src/saga_core/saga_api/saga_api.vcxproj
+index ebee74ed..788de649 100644
+--- a/saga-gis/src/saga_core/saga_api/saga_api.vcxproj
++++ b/saga-gis/src/saga_core/saga_api/saga_api.vcxproj
+@@ -249,7 +249,7 @@ copy tin.h $(OutDir)include\saga_api
+     </Midl>
+     <ClCompile>
+       <Optimization>Disabled</Optimization>
+-      <AdditionalIncludeDirectories>$(WXWIN)/include;$(WXWIN)/lib/vc_x64_dll/mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <AdditionalIncludeDirectories>$(WXWIN)\include;$(WXWIN)\lib\vc_x64_dll\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <PreprocessorDefinitions>_WINDOWS;_MBCS;_USRDLL;_SAGA_API_EXPORTS;WIN32;_DEBUG;__WXMSW__;WXUSINGDLL;__WXDEBUG__;_TYPEDEF_BYTE;_TYPEDEF_WORD;_SAGA_MSW;_SAGA_UNICODE;_SAGA_VC;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+       <MinimalRebuild>true</MinimalRebuild>
+       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+@@ -273,7 +273,7 @@ copy tin.h $(OutDir)include\saga_api
+       <AdditionalDependencies>wxbase31ud.lib;wxbase31ud_net.lib;wxbase31ud_xml.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)/lib/vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+@@ -323,7 +323,7 @@ copy tin.h $(OutDir)include\saga_api
+     <ClCompile>
+       <Optimization>MaxSpeed</Optimization>
+       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+-      <AdditionalIncludeDirectories>$(WXWIN)/include;$(WXWIN)/lib/vc_x64_dll/mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <AdditionalIncludeDirectories>$(WXWIN)\include;$(WXWIN)\lib\vc_x64_dll\mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_MBCS;_USRDLL;_SAGA_API_EXPORTS;WIN32;__WXMSW__;WXUSINGDLL;_TYPEDEF_BYTE;_TYPEDEF_WORD;_SAGA_MSW;_SAGA_UNICODE;_SAGA_VC;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+       <StringPooling>true</StringPooling>
+       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+@@ -348,7 +348,7 @@ copy tin.h $(OutDir)include\saga_api
+       <AdditionalDependencies>wxbase31u.lib;wxbase31u_net.lib;wxbase31u_xml.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)/lib/vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+       <DataExecutionPrevention>
+diff --git a/saga-gis/src/saga_core/saga_cmd/saga_cmd.vcxproj b/saga-gis/src/saga_core/saga_cmd/saga_cmd.vcxproj
+index 48d06754..0314b325 100644
+--- a/saga-gis/src/saga_core/saga_cmd/saga_cmd.vcxproj
++++ b/saga-gis/src/saga_core/saga_cmd/saga_cmd.vcxproj
+@@ -195,7 +195,7 @@
+     <ClCompile>
+       <AdditionalOptions>/EHsc  %(AdditionalOptions)</AdditionalOptions>
+       <Optimization>Disabled</Optimization>
+-      <AdditionalIncludeDirectories>./..;$(WXWIN)/include;$(WXWIN)/lib/vc_x64_dll/mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <AdditionalIncludeDirectories>./..;$(WXWIN)\include;$(WXWIN)\lib\vc_x64_dll\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <PreprocessorDefinitions>_CONSOLE;wxUSE_GUI=0;WIN32;_DEBUG;__WXMSW__;WXUSINGDLL;__WXDEBUG__;_TYPEDEF_BYTE;_TYPEDEF_WORD;_SAGA_MSW;_SAGA_UNICODE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+       <MinimalRebuild>true</MinimalRebuild>
+       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+@@ -221,7 +221,7 @@
+       <AdditionalDependencies>wxbase31ud.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)/lib/vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+@@ -245,7 +245,7 @@
+       <AdditionalOptions>/EHsc  %(AdditionalOptions)</AdditionalOptions>
+       <Optimization>MaxSpeed</Optimization>
+       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+-      <AdditionalIncludeDirectories>./..;$(WXWIN)/include;$(WXWIN)/lib/vc_x64_dll/mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <AdditionalIncludeDirectories>./..;$(WXWIN)\include;$(WXWIN)\lib\vc_x64_dll\mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <PreprocessorDefinitions>_CONSOLE;wxUSE_GUI=0;WIN32;__WXMSW__;WXUSINGDLL;_TYPEDEF_BYTE;_TYPEDEF_WORD;_SAGA_MSW;_SAGA_UNICODE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+       <StringPooling>true</StringPooling>
+       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+@@ -270,7 +270,7 @@
+       <AdditionalDependencies>wxbase31u.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)/lib/vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+       <DataExecutionPrevention>
+diff --git a/saga-gis/src/saga_core/saga_gdi/saga_gdi.vcxproj b/saga-gis/src/saga_core/saga_gdi/saga_gdi.vcxproj
+index c9cac91c..1c08fb79 100644
+--- a/saga-gis/src/saga_core/saga_gdi/saga_gdi.vcxproj
++++ b/saga-gis/src/saga_core/saga_gdi/saga_gdi.vcxproj
+@@ -225,7 +225,7 @@ copy sgdi_helper.h $(OutDir)include\saga_gdi
+     </Midl>
+     <ClCompile>
+       <Optimization>Disabled</Optimization>
+-      <AdditionalIncludeDirectories>./..;$(WXWIN)/include;$(WXWIN)/lib/vc_x64_dll/mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <AdditionalIncludeDirectories>./..;$(WXWIN)\include;$(WXWIN)\lib\vc_x64_dll\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <PreprocessorDefinitions>_WINDOWS;_MBCS;_USRDLL;_SAGA_GDI_EXPORTS;WIN32;_DEBUG;__WXMSW__;WXUSINGDLL;__WXDEBUG__;_TYPEDEF_BYTE;_TYPEDEF_WORD;_SAGA_MSW;_SAGA_UNICODE;_SAGA_VC;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+       <MinimalRebuild>true</MinimalRebuild>
+       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+@@ -249,7 +249,7 @@ copy sgdi_helper.h $(OutDir)include\saga_gdi
+       <AdditionalDependencies>wxmsw31ud_core.lib;wxbase31ud.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)/lib/vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+@@ -287,7 +287,7 @@ copy sgdi_helper.h $(OutDir)include\saga_gdi
+     <ClCompile>
+       <Optimization>MaxSpeed</Optimization>
+       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+-      <AdditionalIncludeDirectories>./..;$(WXWIN)/include;$(WXWIN)/lib/vc_x64_dll/mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <AdditionalIncludeDirectories>./..;$(WXWIN)\include;$(WXWIN)\lib\vc_x64_dll\mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_MBCS;_USRDLL;_SAGA_GDI_EXPORTS;WIN32;__WXMSW__;WXUSINGDLL;_TYPEDEF_BYTE;_TYPEDEF_WORD;_SAGA_MSW;_SAGA_UNICODE;_SAGA_VC;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+       <StringPooling>true</StringPooling>
+       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+@@ -312,7 +312,7 @@ copy sgdi_helper.h $(OutDir)include\saga_gdi
+       <AdditionalDependencies>wxmsw31u_core.lib;wxbase31u.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)/lib/vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+       <DataExecutionPrevention>
+diff --git a/saga-gis/src/saga_core/saga_gui/saga_gui.vcxproj b/saga-gis/src/saga_core/saga_gui/saga_gui.vcxproj
+index 613e65dc..537ba141 100644
+--- a/saga-gis/src/saga_core/saga_gui/saga_gui.vcxproj
++++ b/saga-gis/src/saga_core/saga_gui/saga_gui.vcxproj
+@@ -243,7 +243,7 @@ copy ..\..\scripting\toolchains\*.xml $(OutDir)\modules\toolchains
+       <AdditionalOptions>/EHsc  %(AdditionalOptions)</AdditionalOptions>
+       <Optimization>MaxSpeed</Optimization>
+       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+-      <AdditionalIncludeDirectories>./..;.;$(WXWIN)/include;$(WXWIN)/lib/vc_x64_dll/mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <AdditionalIncludeDirectories>./..;.;$(WXWIN)\include;$(WXWIN)\lib\vc_x64_dll\mswu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <PreprocessorDefinitions>_WINDOWS;NOPCH;WIN32;__WXMSW__;WXUSINGDLL;_TYPEDEF_BYTE;_TYPEDEF_WORD;_SAGA_MSW;_SAGA_UNICODE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+       <StringPooling>true</StringPooling>
+       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+@@ -272,7 +272,7 @@ copy ..\..\scripting\toolchains\*.xml $(OutDir)\modules\toolchains
+       <AdditionalDependencies>wxbase31u_xml.lib;wxbase31u_net.lib;wxmsw31u_propgrid.lib;wxmsw31u_html.lib;wxmsw31u_aui.lib;wxmsw31u_adv.lib;wxmsw31u_core.lib;wxbase31u.lib;saga_api.lib;saga_gdi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)/lib/vc_x64_dll;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
+       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+@@ -310,7 +310,7 @@ copy ..\..\scripting\toolchains\*.xml $(OutDir)\modules\toolchains
+     <ClCompile>
+       <AdditionalOptions>/EHsc  %(AdditionalOptions)</AdditionalOptions>
+       <Optimization>Disabled</Optimization>
+-      <AdditionalIncludeDirectories>./..;.;$(WXWIN)/include;$(WXWIN)/lib/vc_x64_dll/mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <AdditionalIncludeDirectories>./..;.;$(WXWIN)\include;$(WXWIN)\lib\vc_x64_dll\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+       <PreprocessorDefinitions>_WINDOWS;NOPCH;WIN32;_DEBUG;__WXMSW__;WXUSINGDLL;__WXDEBUG__;_TYPEDEF_BYTE;_TYPEDEF_WORD;_SAGA_MSW;_SAGA_UNICODE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+       <MinimalRebuild>true</MinimalRebuild>
+       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+@@ -340,7 +340,7 @@ copy ..\..\scripting\toolchains\*.xml $(OutDir)\modules\toolchains
+       <AdditionalDependencies>wxbase31ud_xml.lib;wxbase31ud_net.lib;wxmsw31ud_propgrid.lib;wxmsw31ud_html.lib;wxmsw31ud_aui.lib;wxmsw31ud_adv.lib;wxmsw31ud_core.lib;wxbase31ud.lib;saga_api.lib;saga_gdi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+       <SuppressStartupBanner>true</SuppressStartupBanner>
+-      <AdditionalLibraryDirectories>$(WXWIN)/lib/vc_x64_dll;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_dll;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SubSystem>Windows</SubSystem>
