@@ -31,8 +31,8 @@ pushd %SAGA%\src
   if %errorlevel% neq 0 exit /b %errorlevel%
 
   :: skip imagery_opencv
-  :: sed -i "/{AC303E9F-28C5-4F95-8E25-A5D59E8DB01D}.*Build\.0.*/d" saga.vc10.sln
-  ::if %errorlevel% neq 0 exit /b %errorlevel%
+  sed -i "/{AC303E9F-28C5-4F95-8E25-A5D59E8DB01D}.*Build\.0.*/d" saga.vc10.sln
+  if %errorlevel% neq 0 exit /b %errorlevel%
 
   :: skip imagery_vigra
   sed -i "/{596A318C-D642-4397-BC7E-6B68BEAA95FC}.*Build\.0.*/d" saga.vc10.sln
