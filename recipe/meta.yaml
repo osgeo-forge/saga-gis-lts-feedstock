@@ -31,11 +31,10 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - m2-patch  # [win]
     - m2-sed    # [win]
   host:
     - gdal
-    - opencv
+    # - opencv
     - proj4
     - postgresql
     # - vigra
@@ -45,7 +44,7 @@ requirements:
     # - liblas
   run:
     - gdal
-    - opencv
+    # - opencv
     - proj4
     - postgresql
     # - vigra
