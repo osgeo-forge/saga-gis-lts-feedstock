@@ -78,32 +78,33 @@ if not exist %app_prefix% mkdir %app_prefix%
 pushd %SAGA%\bin\saga_vc_x64
   xcopy /y /s /i modules %app_prefix%\modules
   if %errorlevel% neq 0 exit /b %errorlevel%
-  for %%a in (
+  for %%G in (
     "saga.*.txt"
     "saga_*.dll"
     "saga_*.exe"
     "saga_prj.*"
   ) do (
-    xcopy /y /r /i %%a %app_prefix%
+    xcopy /y /r /i %%G %app_prefix%
     if %errorlevel% neq 0 exit /b %errorlevel%
   )
 popd
 
-REM :: Copy over only needed wxWidgets dlls
-REM pushd %LIBRARY_LIB%\vc_x64_dll
-REM   for %%a in (
-REM     "wxbase3*u_vc*_x64.dll"
-REM     "wxbase3*u_net_vc*_x64.dll"
-REM     "wxbase3*u_xml_vc*_x64.dll"
-REM     "wxmsw3*u_adv_vc*_x64.dll"
-REM     "wxmsw3*u_aui_vc*_x64.dll"
-REM     "wxmsw3*u_core_vc*_x64.dll"
-REM     "wxmsw3*u_html_vc*_x64.dll"
-REM     "wxmsw3*u_propgrid_vc*_x64.dll"
-REM   ) do (
-REM     xcopy /y /r /i %%a %app_prefix%
-REM   )
-REM popd
+:: Copy over only needed wxWidgets dlls; otherwise,
+::   QGIS Processing provider needs hacked to also find wx DLLs
+pushd %LIBRARY_LIB%\vc_x64_dll
+  for %%G in (
+    "wxbase3*u_vc*_x64.dll"
+    "wxbase3*u_net_vc*_x64.dll"
+    "wxbase3*u_xml_vc*_x64.dll"
+    "wxmsw3*u_adv_vc*_x64.dll"
+    "wxmsw3*u_aui_vc*_x64.dll"
+    "wxmsw3*u_core_vc*_x64.dll"
+    "wxmsw3*u_html_vc*_x64.dll"
+    "wxmsw3*u_propgrid_vc*_x64.dll"
+  ) do (
+    xcopy /y /r /i %%G %app_prefix%
+  )
+popd
 
 :: Install launch scripts
 copy "%RECIPE_DIR%\saga_cmd.bat" "%LIBRARY_BIN%\saga_cmd.bat"
