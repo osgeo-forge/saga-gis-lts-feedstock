@@ -25,13 +25,14 @@ source:
     - 0008_fix_proj_header_lib.patch
 
 build:
-  number: 0
+  number: 1000
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - m2-sed    # [win]
+    - m2-sed  # [win]
+    - m2-patch  # [win]
   host:
     - gdal
     # - opencv
