@@ -9,7 +9,7 @@ set OPENCV=%LIBRARY_PREFIX%
 set PGSQL=%LIBRARY_PREFIX%
 set PROJ4=%LIBRARY_PREFIX%
 :: set VIGRA=%LIBRARY_PREFIX%
-set WXWIN=%LIBRARY_PREFIX%
+set WXWIN=%SRC_DIR%\wxwidgets
 set WXWINLIB=%WXWIN%\lib\vc_x64_dll
 
 set SAGA=%SRC_DIR%\saga-gis
@@ -17,6 +17,23 @@ set SAGA_LIB=%SAGA%\bin\saga_vc_x64
 set SAGA_MLB=%LIBRARY_BIN%;%WXWINLIB%
 
 set app_prefix=%LIBRARY_PREFIX%\apps\%PKG_NAME%
+
+
+:: Set up wxWidgets
+pushd %WXWIN%
+  :: Move over Dev resources
+  :: (installed to lib2 due to bug in conda-build that places inside same-named folder,
+  ::  e.g. lib\vc140_x64_dll\vc140_x64_dll)
+  move lib2\vc140_x64_dll\* lib\vc140_x64_dll\
+  move lib2\vc140_x64_dll\mswu lib\vc140_x64_dll\
+  move lib2\vc140_x64_dll\mswud lib\vc140_x64_dll\
+  :: Small fix because wxwindows paths are different when downloading than when compiling yourself
+  move lib\vc140_x64_dll lib\vc_x64_dll
+
+  :: Apparently not found in msvc subdir
+  REM copy include\msvc\wx\setup.h include\wx\setup.h
+
+popd
 
 
 :: BUILD
@@ -38,17 +55,17 @@ pushd %SAGA%\src
   sed -i "/{596A318C-D642-4397-BC7E-6B68BEAA95FC}.*Build\.0.*/d" saga.vc10.sln
   if %errorlevel% neq 0 exit /b %errorlevel%
 
-  :: skip io_shapes_las
+  :: skip io_shapes_las (requires really old v1.6.0)
   sed -i "/{315A9D51-F880-4E45-A890-60FCC4AC71DA}.*Build\.0.*/d" saga.vc10.sln
   if %errorlevel% neq 0 exit /b %errorlevel%
 
   :: From SAGA appveyor.yml
   :: skip proj
-  :: sed -i '/{05EC4432-92F8-4400-87EA-11542DA70D07}.*Build\.0.*/d' saga.vc10.sln
-  :: if %errorlevel% neq 0 exit /b %errorlevel%
+  sed -i '/{05EC4432-92F8-4400-87EA-11542DA70D07}.*Build\.0.*/d' saga.vc10.sln
+  if %errorlevel% neq 0 exit /b %errorlevel%
 
   :: make sure we can find conda pkg installs:
-  set "INCLUDE=%LIBRARY_INC%;%INCLUDE%"
+  set "INCLUDE=%WXWIN%\include;%LIBRARY_INC%;%INCLUDE%"
   set "LIB=%WXWINLIB%;%LIBRARY_LIB%;%LIB%"
 
   :: This fails, probably due to inconsistent patching with line endings
@@ -91,7 +108,7 @@ popd
 
 :: Copy over only needed wxWidgets dlls; otherwise,
 ::   QGIS Processing provider needs hacked to also find wx DLLs
-pushd %LIBRARY_LIB%\vc_x64_dll
+pushd %WXWINLIB%
   for %%G in (
     "wxbase3*u_vc*_x64.dll"
     "wxbase3*u_net_vc*_x64.dll"

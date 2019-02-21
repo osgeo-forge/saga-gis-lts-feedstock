@@ -1,31 +1,43 @@
 {% set version = "2.3.2" %}
+{% set wx_version = "3.1.0" %}
+{% set wx_vs_ver = "vc140_x64" %}
 
 package:
   name: saga-ltr
   version: {{ version }}
 
 source:
-  git_url: https://git.code.sf.net/p/saga-gis/code.git
-  git_tag: release-2-3-lts
-  patches:
-    # saga_api, CSG_Table::Del_Records(): bug fix, check record count correctly
-    - 0001_saga_api_csg_table.patch
-    # fix clang
-    - 0002_fix_clang_compilation.patch
-    # io_gdal, org_driver: do not use methods marked as deprecated in GDAL 2.0
-    # https://sourceforge.net/p/saga-gis/bugs/245/
-    - 0003_gdal_ogr_skip_deprecated_methods.patch
-    # bunch of path fixes (this needs a PR to SAGA project)
-    - 0004_fix_vcxproj_inc_lib_paths.patch
-    # upgrade of project fails otherwise
-    - 0005_vs2015_upgrade_projects.patch
-    # fix up some header includes and lib linking
-    - 0006_fix_opencv_version_linking.patch
-    - 0007_fix_ fftw3_version_linking.patch
-    - 0008_fix_proj_header_lib.patch
+  - git_url: https://git.code.sf.net/p/saga-gis/code.git
+    git_tag: release-2-3-lts
+    patches:
+      # saga_api, CSG_Table::Del_Records(): bug fix, check record count correctly
+      - 0001_saga_api_csg_table.patch
+      # fix clang
+      - 0002_fix_clang_compilation.patch
+      # io_gdal, org_driver: do not use methods marked as deprecated in GDAL 2.0
+      # https://sourceforge.net/p/saga-gis/bugs/245/
+      - 0003_gdal_ogr_skip_deprecated_methods.patch
+      # bunch of path fixes (this needs a PR to SAGA project)
+      - 0004_fix_vcxproj_inc_lib_paths.patch
+      # upgrade of project fails otherwise
+      - 0005_vs2015_upgrade_projects.patch
+      # fix up some header includes and lib linking
+      - 0006_fix_opencv_version_linking.patch
+      - 0007_fix_ fftw3_version_linking.patch
+      - 0008_fix_proj_header_lib.patch
+  - folder: wxwidgets/lib
+    url: https://github.com/wxWidgets/wxWidgets/releases/download/v{{ wx_version }}/wxMSW-{{ wx_version }}_{{ wx_vs_ver }}_ReleaseDLL.7z  # [win]
+    sha256: 835959fc8e2c1d6b8ccb5f8d4d87692d007f0443038cbdde6344f9ab157fcecc  # [win]
+  - folder: wxwidgets/lib2
+    url: https://github.com/wxWidgets/wxWidgets/releases/download/v{{ wx_version }}/wxMSW-{{ wx_version }}_{{ wx_vs_ver }}_Dev.7z  # [win]
+    sha256: 4f26d0aaf2cdb31adc1896187f4aab6663cc10f97ba76cb2599f32d78f95e833  # [win]
+  - folder: wxwidgets/include
+    url: https://github.com/wxWidgets/wxWidgets/releases/download/v{{ wx_version }}/wxWidgets-{{ wx_version }}-headers.7z  # [win]
+    sha256: ea326b6bf9ba74552567e45ef1b93e39e1ca4a5e22ead9056a11534386ad5cbb  # [win]
+
 
 build:
-  number: 1000
+  number: 1003
 
 requirements:
   build:
@@ -33,16 +45,19 @@ requirements:
     - {{ compiler('cxx') }}
     - m2-sed  # [win]
     - m2-patch  # [win]
+    - 7za
   host:
+    # Ensure numpy from defaults (via solving) is not used
+    - numpy >=1.15
     - gdal
     # - opencv
     - proj4
     - postgresql
     # - vigra
-    - wxwidgets
+    # - wxwidgets
     # Don't have these as recipes yet
     # - libharu
-    # - liblas
+    # - liblas 1.6.*
   run:
     - gdal
     # - opencv
@@ -52,7 +67,7 @@ requirements:
     # - wxwidgets
     # Don't have these as recipes yet
     # - libharu
-    # - liblas
+    # - liblas 1.6.*
 
 test:
   commands:

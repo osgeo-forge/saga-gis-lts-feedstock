@@ -1,10 +1,19 @@
 @echo off
 
-for %%a in (%~dp0\..) do set LIBRARY_PREFIX=%%~fa
+@setlocal
+
+for %%a in (%~dp0..) do set "LIBRARY_PREFIX=%%~fa"
 
 :: Override with osgeo-forge env
-if exist "%~dp0\osgeo-env.bat" call "%~dp0\osgeo-env.bat"
+if exist "%~dp0\osgf_env.bat" call "%~dp0\osgf_env.bat"
 
-set "SAGA_MLB=%LIBRARY_PREFIX%\apps\saga-ltr;%LIBRARY_PREFIX%\bin"
-set "PATH=%LIBRARY_PREFIX%\bin;%PATH%"
-start /B "SAGA GIS GUI" "%LIBRARY_PREFIX%\apps\saga-ltr\saga_gui.exe" %*
+pushd "%LIBRARY_PREFIX%\apps\saga-ltr"
+
+  set "SAGA=%cd%"
+  set "SAGA_MLB=%cd%\modules"
+  set "PATH=%cd%;%SAGA_MLB%;%LIBRARY_PREFIX%\bin;%PATH%"
+  start /B "SAGA GIS GUI" saga_gui.exe %*
+
+popd
+
+@endlocal
