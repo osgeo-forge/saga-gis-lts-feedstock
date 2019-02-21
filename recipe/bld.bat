@@ -38,7 +38,7 @@ pushd %SAGA%\src
   sed -i "/{596A318C-D642-4397-BC7E-6B68BEAA95FC}.*Build\.0.*/d" saga.vc10.sln
   if %errorlevel% neq 0 exit /b %errorlevel%
 
-  :: skip io_shapes_las
+  :: skip io_shapes_las (requires really old v1.6.0)
   sed -i "/{315A9D51-F880-4E45-A890-60FCC4AC71DA}.*Build\.0.*/d" saga.vc10.sln
   if %errorlevel% neq 0 exit /b %errorlevel%
 

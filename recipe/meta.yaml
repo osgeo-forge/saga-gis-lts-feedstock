@@ -25,7 +25,7 @@ source:
     - 0008_fix_proj_header_lib.patch
 
 build:
-  number: 1000
+  number: 1005
 
 requirements:
   build:
@@ -34,6 +34,8 @@ requirements:
     - m2-sed  # [win]
     - m2-patch  # [win]
   host:
+    # Ensure numpy from defaults (via solving) is not used
+    - numpy >=1.15
     - gdal
     # - opencv
     - proj4
@@ -42,8 +44,10 @@ requirements:
     - wxwidgets
     # Don't have these as recipes yet
     # - libharu
-    # - liblas
+    # - liblas 1.6.*
   run:
+    # Ensure numpy from defaults (via solving) is not used
+    - numpy >=1.15
     - gdal
     # - opencv
     - proj4
@@ -52,7 +56,7 @@ requirements:
     # - wxwidgets
     # Don't have these as recipes yet
     # - libharu
-    # - liblas
+    # - liblas 1.6.*
 
 test:
   commands:
